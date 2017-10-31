@@ -45,14 +45,18 @@ void racing::Track::GameCreater()
 
 void racing::Track::Initialization()
 {
+	isGameOver = false;
+
 	pointsCount_ = 0;
 	speed_ = 100;
+
+	dir = DIR_STOP;
+
 	player_ = new racing::Player;
 	points_ = new racing::Points;
 	obst_ = new racing::Obstacle;
 
-	dir = DIR_STOP;
-
+	
 	playX_ = player_->GetX();
 	playY_ = player_->GetY();	
 
@@ -84,7 +88,7 @@ void racing::Track::Print()
 void racing::Track::Run()
 {	
 	Initialization();
-	while (true)
+	while (!isGameOver)
 	{
 		Input();
 		Logic();
@@ -113,11 +117,13 @@ void racing::Track::Input()
 		case 's':
 			dir = DIR_DOWN;
 			break;
+		case EXIT_GAME:
+			dir = DIR_EXIT;
 		}
 	}
 }
 
-void racing::Track::Logic()
+void racing::Track::Logic()	
 {
 	std::random_device random_device; 
 	std::mt19937 generator(random_device());
@@ -143,6 +149,8 @@ void racing::Track::Logic()
 		speed_ = speed_ + PLAYER_SPEED_CHANGER;
 		dir = DIR_STOP;
 		break;
+	case DIR_EXIT:
+		isGameOver = true;
 	}
 
 	if (playX_ < PLAYER_MIN_X)

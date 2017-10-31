@@ -5,21 +5,22 @@
 #include "Obstacle.h"
 #include <conio.h>
 
-
 const int TRACK_WIDTH = 20;
 const int TRACK_HEIGHT = 20;
 const int TRACK_CURRENT_HEIGHT = 18;
 
 const char TRACK_BOARD_SYMB = '|';
 const char TRACK_FREE_SPACE_SYMB = ' ';
+const char EXIT_GAME = 27;
 
 enum e_direction
 {
-	DIR_STOP = 0,
+	DIR_STOP,
 	DIR_UP,
 	DIR_DOWN,
 	DIR_LEFT,
-	DIR_RIGHT
+	DIR_RIGHT,
+	DIR_EXIT
 };
 
 namespace racing
@@ -43,6 +44,8 @@ namespace racing
 
 		e_direction dir;
 
+		bool isGameOver;
+
 		int speed_;
 		int pointsCount_;
 		
@@ -55,5 +58,4 @@ namespace racing
 		int obstX_;
 		int obstY_;
 	};
-
 }
