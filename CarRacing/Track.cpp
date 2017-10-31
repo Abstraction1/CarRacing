@@ -9,7 +9,7 @@
 
 racing::Track::Track()
 {
-	Initialization();
+
 }
 
 void racing::Track::GameCreater()
@@ -48,14 +48,13 @@ void racing::Track::Initialization()
 	isGameOver = false;
 
 	pointsCount_ = 0;
-	speed_ = 100;
+	speed_ = 159;
 
 	dir = DIR_STOP;
 
 	player_ = new racing::Player;
 	points_ = new racing::Points;
 	obst_ = new racing::Obstacle;
-
 	
 	playX_ = player_->GetX();
 	playY_ = player_->GetY();	
@@ -95,7 +94,7 @@ void racing::Track::Run()
 		GameCreater();
 		Print();
 		Sleep(speed_);
-		system("cls");
+		clearScreen();
 	}
 }
 
@@ -123,6 +122,18 @@ void racing::Track::Input()
 	}
 }
 
+void racing::Track::clearScreen()
+{
+	HANDLE hOut;
+	COORD Position;
+
+	hOut = GetStdHandle(STD_OUTPUT_HANDLE);
+
+	Position.X = 0;
+	Position.Y = 0;
+	SetConsoleCursorPosition(hOut, Position);
+}
+
 void racing::Track::Logic()	
 {
 	std::random_device random_device; 
@@ -145,6 +156,7 @@ void racing::Track::Logic()
 	case DIR_UP:
 		speed_ = speed_ - PLAYER_SPEED_CHANGER;
 		dir = DIR_STOP;
+		break;
 	case DIR_DOWN:
 		speed_ = speed_ + PLAYER_SPEED_CHANGER;
 		dir = DIR_STOP;
@@ -181,12 +193,18 @@ void racing::Track::Logic()
 	}
 	
 	obstY_++;
-	
 	if (obstY_ > OBSTACLE_MAX_Y)
 	{
 		obstX_ = GenForObstXcoord(generator);
 		obstY_ = OBSTACLE_MIN_Y;
 	}
 
+	bool isCrashCentr = playY_ - 1 == obstY_ + 1;
 
+	if (isCrashCentr)
+	{
+		isGameOver = true;
+		std::cout << "CRASH!";
+		system("pause");
+	}
 }

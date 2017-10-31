@@ -35,6 +35,8 @@ namespace racing
 		void GameCreater();
 		void Run();
 		void Input();
+		void clearScreen();
+
 	private:
 		char area[TRACK_WIDTH][TRACK_HEIGHT];
 		

@@ -5,7 +5,7 @@ const char PLAYER_BOARD_SYMB = '|';
 const char PLAYER_WHEELS_SYMB = 'o';
 
 const int PLAYER_STEP = 1;
-const int PLAYER_SPEED_CHANGER = 25;
+const int PLAYER_SPEED_CHANGER = 5;
 const int PLAYER_START_COORD_X = 16;
 const int PLAYER_START_COORD_Y = 16;
 
