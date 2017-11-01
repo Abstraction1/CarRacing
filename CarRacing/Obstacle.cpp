@@ -1,10 +1,8 @@
 #include "Obstacle.h"
+#include "Const.h"
+using namespace racing;
 
-racing::Obstacle::Obstacle()
-{
-	coordX_ = 10;
-	coordY_ = OBSTACLE_MIN_Y;
-}
-
-
-
+Obstacle::Obstacle() : 
+	coordX_(constant::OBSTACLE_START_X),
+	coordY_(constant::OBSTACLE_MIN_Y)
+	{ }

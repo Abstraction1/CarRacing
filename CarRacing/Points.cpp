@@ -1,14 +1,9 @@
 #include "Points.h"
 #include <iostream>
+using namespace racing;
 
+Points::Points() :
 
-racing::Points::Points()
-{
-	coordX_ = SetRandCoord();
+	coordX_(constant::POINTS_START_X),
 	coordY_ = 0;
-}
-
-int racing::Points::SetRandCoord()
-{
-	return rand() % 18;
-}
+	{ }
