@@ -192,8 +192,17 @@ void Track::Logic()
 		obstX_ = GenForObstXcoord(generator);
 		obstY_ = constant::OBSTACLE_MIN_Y;
 	}
+	
+	/*!
+	 * \file Track.cpp
+	 *
+	 * \author default
+	 * 
+	 *
+	 * Need to fix bug 
+	 */
 
-	bool isCrashCentr = playY_ - 1 == obstY_ + 1;
+	bool isCrashCentr = playY_ + 1 == obstY_ - 1;
 	if (isCrashCentr)
 	{
 		isGameOver = true;

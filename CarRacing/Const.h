@@ -1,5 +1,14 @@
 #pragma once
 
+/*!
+ * \file Const.h
+ *
+ * \author default
+ * 
+ *
+ * Constant List
+ */
+
 namespace constant
 {
 	const char OBSTACLE_CENTR_SYMB = 'X';
