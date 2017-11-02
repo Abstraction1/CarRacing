@@ -26,7 +26,7 @@ int main()
 	obst[OBSTACLES_FENCE] = new racing::Fence;
 	
 	int fenceX_ = obst[OBSTACLES_FENCE]->GetX();
-	int fenceY_ = obst[OBSTACLES_FENCE]->GetX();
+	int fenceY_ = obst[OBSTACLES_FENCE]->GetY();
 
 	obst[OBSTACLES_FENCE]->DrawObstacle(fenceY_, fenceX_, a);
 	
