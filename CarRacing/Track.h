@@ -1,8 +1,8 @@
 #pragma once
 
 #include "Player.h"
-#include "Points.h"
-#include "Obstacle.h"
+#include "Cash.h"
+#include "CarEnemy.h"
 #include <conio.h>
 #include "Const.h"
 
@@ -23,8 +23,8 @@ namespace racing
 		char area[constant::TRACK_WIDTH][constant::TRACK_HEIGHT];
 		
 		racing::Player* player_;
-		racing::Points* points_;
-		racing::Obstacle* obst_;
+		racing::Cash* cash_;
+		racing::CarEnemy* carEnemy_;
 
 		constant::e_direction DIR;
 
@@ -33,13 +33,13 @@ namespace racing
 		int speed_;
 		int pointsCount_;
 		
-		int playX_;
-		int playY_;
+		int playerX_;
+		int playerY_;
 		
-		int pointsX_;
-		int pointsY_;
+		int cashX_;
+		int cashY_;
 		
-		int obstX_;
-		int obstY_;
+		int carEnemyX_;
+		int carEnemyY_;
 	};
 }

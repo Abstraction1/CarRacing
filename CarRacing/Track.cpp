@@ -1,7 +1,7 @@
 #include "Track.h"
 #include "Player.h"
-#include "Points.h"
-#include "Obstacle.h"
+#include "Cash.h"
+#include "CarEnemy.h"
 #include "Const.h"
 
 #include <iostream>
@@ -17,17 +17,17 @@ Track::Track() :
 	DIR(constant::DIR_STOP),
 
 	player_(new racing::Player),
-	points_(new racing::Points),
-	obst_(new racing::Obstacle),
+	cash_(new racing::Cash),
+	carEnemy_(new racing::CarEnemy),
 
-	playX_(player_->GetX()),
-	playY_(player_->GetY()),
+	playerX_(player_->GetX()),
+	playerY_(player_->GetY()),
 
-	pointsX_(points_->GetX()),
-	pointsY_(points_->GetY()),
+	cashX_(cash_->GetX()),
+	cashY_(cash_->GetY()),
 
-	obstX_(obst_->GetX()),
-	obstY_(obst_->GetY())
+	carEnemyX_(carEnemy_->GetX()),
+	carEnemyY_(carEnemy_->GetY())
 	{ }
 
 void Track::GameCreater()
@@ -42,23 +42,23 @@ void Track::GameCreater()
 		}
 	}
 
-	area[playY_][playX_] = constant::PLAYER_CENTR_SYMB;
-	area[playY_][playX_ + 1] = constant::PLAYER_BOARD_SYMB;
-	area[playY_][playX_ - 1] = constant::PLAYER_BOARD_SYMB;
-	area[playY_ - 1][playX_ + 1] = constant::PLAYER_WHEELS_SYMB;
-	area[playY_ + 1][playX_ + 1] = constant::PLAYER_WHEELS_SYMB;
-	area[playY_ - 1][playX_ - 1] = constant::PLAYER_WHEELS_SYMB;
-	area[playY_ + 1][playX_ - 1] = constant::PLAYER_WHEELS_SYMB;
+	area[playerY_][playerX_] = constant::PLAYER_CENTR_SYMB;
+	area[playerY_][playerX_ + 1] = constant::PLAYER_BOARD_SYMB;
+	area[playerY_][playerX_ - 1] = constant::PLAYER_BOARD_SYMB;
+	area[playerY_ - 1][playerX_ + 1] = constant::PLAYER_WHEELS_SYMB;
+	area[playerY_ + 1][playerX_ + 1] = constant::PLAYER_WHEELS_SYMB;
+	area[playerY_ - 1][playerX_ - 1] = constant::PLAYER_WHEELS_SYMB;
+	area[playerY_ + 1][playerX_ - 1] = constant::PLAYER_WHEELS_SYMB;
 
-	area[pointsY_][pointsX_] = constant::POINTS_SYMB;
+	area[cashY_][cashX_] = constant::POINTS_SYMB;
 
-	area[obstY_][obstX_] = constant::OBSTACLE_CENTR_SYMB;
-	area[obstY_][obstX_ + 1] = constant::OBSTACLE_BOARD_SYMB;
-	area[obstY_][obstX_ - 1] = constant::OBSTACLE_BOARD_SYMB;
-	area[obstY_ - 1][obstX_ + 1] = constant::OBSTACLE_WHEELS_SYMB;
-	area[obstY_ + 1][obstX_ + 1] = constant::OBSTACLE_WHEELS_SYMB;
-	area[obstY_ - 1][obstX_ - 1] = constant::OBSTACLE_WHEELS_SYMB;
-	area[obstY_ + 1][obstX_ - 1] = constant::OBSTACLE_WHEELS_SYMB;
+	area[carEnemyY_][carEnemyX_] = constant::CAR_ENEMY_CENTR_SYMB;
+	area[carEnemyY_][carEnemyX_ + 1] = constant::CAR_ENEMY_BOARD_SYMB;
+	area[carEnemyY_][carEnemyX_ - 1] = constant::CAR_ENEMY_CENTR_SYMB;
+	area[carEnemyY_ - 1][carEnemyX_ + 1] = constant::CAR_ENEMY_WHEELS_SYMB;
+	area[carEnemyY_ + 1][carEnemyX_ + 1] = constant::CAR_ENEMY_WHEELS_SYMB;
+	area[carEnemyY_ - 1][carEnemyX_ - 1] = constant::CAR_ENEMY_WHEELS_SYMB;
+	area[carEnemyY_ + 1][carEnemyX_ - 1] = constant::CAR_ENEMY_WHEELS_SYMB;
 }
 
 void Track::Print()
@@ -72,10 +72,10 @@ void Track::Print()
 		std::cout << std::endl;
 	}
 	std::cout << "points =  " << pointsCount_ << '\n';
-	std::cout << "Point X " << pointsX_ << '\n';
-	std::cout << "Point Y " << pointsY_ << '\n';
-	std::cout << "Obstacle X " << obstX_ << '\n';
-	std::cout << "Obstacle X " << obstY_ << '\n';
+	std::cout << "Point X " << cashX_ << '\n';
+	std::cout << "Point Y " << cashY_ << '\n';
+	std::cout << "Obstacle X " << carEnemyX_ << '\n';
+	std::cout << "Obstacle X " << carEnemyY_ << '\n';
 	std::cout << "Obstacle Y " << speed_ << '\n';
 }
 
@@ -132,19 +132,19 @@ void Track::Logic()
 	std::mt19937 generator(random_device());
 	std::uniform_int_distribution<> GenForPointXcoord(constant::POINTS_MIN_X, 
 		constant::POINTS_MAX_X);
-	std::uniform_int_distribution<> GenForObstXcoord(constant::OBSTACLE_MIN_X, 
-		constant::OBSTACLE_MAX_X);
+	std::uniform_int_distribution<> GenForObstXcoord(constant::CAR_ENEMY_MIN_X, 
+		constant::CAR_ENEMY_MAX_X);
 
 	switch (DIR)
 	{
 	case constant::DIR_LEFT:
-		playX_ -= constant::PLAYER_STEP;
-		player_->SetX(playX_);
+		playerX_ -= constant::PLAYER_STEP;
+		player_->SetX(playerX_);
 		DIR = constant::DIR_STOP;
 		break;
 	case constant::DIR_RIGHT:
-		playX_ += constant::PLAYER_STEP;
-		player_->SetX(playX_);
+		playerX_ += constant::PLAYER_STEP;
+		player_->SetX(playerX_);
 		DIR = constant::DIR_STOP;
 		break;
 	case constant::DIR_UP:
@@ -159,38 +159,38 @@ void Track::Logic()
 		isGameOver = true;
 	}
 
-	if (playX_ < constant::PLAYER_MIN_X)
+	if (playerX_ < constant::PLAYER_MIN_X)
 	{
-		playX_ = constant::PLAYER_MIN_X;
+		playerX_ = constant::PLAYER_MIN_X;
 	}
-	else if (playX_ > constant::PLAYER_MAX_X)
+	else if (playerX_ > constant::PLAYER_MAX_X)
 	{
-		playX_ = constant::PLAYER_MAX_X;
-	}
-
-	pointsY_+= constant::POINTS_SPEED;
-	if (pointsY_ > constant::POINTS_MAX_Y)
-	{
-		pointsX_ = GenForPointXcoord(generator);
-		pointsY_ = 0;
+		playerX_ = constant::PLAYER_MAX_X;
 	}
 
-	bool isCatchLeft = pointsY_ == playY_ && pointsX_ == playX_ - 1;
-	bool isCatchRight = pointsY_ == playY_ && pointsX_ == playX_ + 1;
-	bool isCatchCentr = pointsY_ == playY_ && pointsX_ == playX_;
+	cashY_+= constant::POINTS_SPEED;
+	if (cashY_ > constant::POINTS_MAX_Y)
+	{
+		cashX_ = GenForPointXcoord(generator);
+		cashY_ = 0;
+	}
+
+	bool isCatchLeft = cashY_ == playerY_ && cashX_ == playerX_ - 1;
+	bool isCatchRight = cashY_ == playerY_ && cashX_ == playerX_ + 1;
+	bool isCatchCentr = cashY_ == playerY_ && cashX_ == playerX_;
 
 	if (isCatchLeft || isCatchRight || isCatchCentr)
 	{
 		pointsCount_++;
-		pointsX_ = GenForPointXcoord(generator);
-		pointsY_ = 0;
+		cashX_ = GenForPointXcoord(generator);
+		cashY_ = 0;
 	}
 	
-	obstY_++;
-	if (obstY_ > constant::OBSTACLE_MAX_Y)
+	carEnemyY_++;
+	if (carEnemyY_ > constant::CAR_ENEMY_MAX_Y)
 	{
-		obstX_ = GenForObstXcoord(generator);
-		obstY_ = constant::OBSTACLE_MIN_Y;
+		carEnemyX_ = GenForObstXcoord(generator);
+		carEnemyY_ = constant::CAR_ENEMY_MIN_Y;
 	}
 	
 	/*!
@@ -202,7 +202,7 @@ void Track::Logic()
 	 * Need to fix bug 
 	 */
 
-	bool isCrashCentr = playY_ + 1 == obstY_ - 1;
+	bool isCrashCentr = playerY_ + 1 == carEnemyY_ - 1;
 	if (isCrashCentr)
 	{
 		isGameOver = true;

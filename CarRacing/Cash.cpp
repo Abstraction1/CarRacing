@@ -1,9 +1,8 @@
-#include "Points.h"
+#include "Cash.h"
 #include <iostream>
 using namespace racing;
 
-Points::Points() :
-
+Cash::Cash() :
 	coordX_(constant::POINTS_START_X),
 	coordY_(0)
 	{ }

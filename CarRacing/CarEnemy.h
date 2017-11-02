@@ -1,26 +1,24 @@
 #pragma once
-#include "Const.h"
 
 namespace racing
 {
-	class Points
+	class CarEnemy
 	{
 	public:
-		Points();
+		CarEnemy();
 		inline int GetX() const;
 		inline int GetY() const;
-		int SetRandCoord();
 	private:
 		int coordX_;
 		int coordY_;
 	};
 
-	inline int Points::GetX() const
+	inline int CarEnemy::GetX() const
 	{
 		return coordX_;
 	}
 
-	inline int Points::GetY() const
+	inline int CarEnemy::GetY() const
 	{
 		return coordY_;
 	}

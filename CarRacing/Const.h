@@ -11,15 +11,20 @@
 
 namespace constant
 {
-	const char OBSTACLE_CENTR_SYMB = 'X';
-	const char OBSTACLE_BOARD_SYMB = '|';
-	const char OBSTACLE_WHEELS_SYMB = 'o';
-	const int OBSTACLE_STEP = 1;
-	const int OBSTACLE_MAX_X = 16;
-	const int OBSTACLE_MIN_X = 2;
-	const int OBSTACLE_START_X = 10;
-	const int OBSTACLE_MAX_Y = 17;
-	const int OBSTACLE_MIN_Y = 1;
+	const int OBSTACLES_NUMBER = 3;
+	const int OBSTACLES_HOLE = 0;
+	const int OBSTACLES_FENCE = 1;
+	const int OBSTACLES_STONE = 2;
+
+	const char CAR_ENEMY_CENTR_SYMB = 'X';
+	const char CAR_ENEMY_BOARD_SYMB = '|';
+	const char CAR_ENEMY_WHEELS_SYMB = 'o';
+	const int CAR_ENEMY_STEP = 1;
+	const int CAR_ENEMY_MAX_X = 16;
+	const int CAR_ENEMY_MIN_X = 2;
+	const int CAR_ENEMY_START_X = 10;
+	const int CAR_ENEMY_MAX_Y = 17;
+	const int CAR_ENEMY_MIN_Y = 1;
 
 	const char PLAYER_CENTR_SYMB = 'X';
 	const char PLAYER_BOARD_SYMB = '|';
