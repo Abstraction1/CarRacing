@@ -1,5 +1,6 @@
 #pragma once
 #include <iostream>
+#include "Const.h"
 
 namespace racing
 {
@@ -14,6 +15,8 @@ namespace racing
 		{
 			std::cout << "base";
 		}
+		virtual void DrawObstacle(const int& width, const int& height,
+			char arr[20][20]) = 0;
 	};
 
 	class Hole : public Obstacles
@@ -25,6 +28,8 @@ namespace racing
 		inline void SetX(int coordX);
 		inline void SetY(int coordY);
 		void info();
+		void DrawObstacle(const int& width, const int& height, 
+			char arr[20][20]);
 	private:
 		int coordX_;
 		int coordY_;
@@ -39,6 +44,8 @@ namespace racing
 		inline void SetX(int coordX);
 		inline void SetY(int coordY);
 		void info();
+		void DrawObstacle(const int& width, const int& height,
+			char arr[20][20]);
 	private:
 		int coordX_;
 		int coordY_;
@@ -52,6 +59,8 @@ namespace racing
 		inline int GetY();
 		inline void SetX(int coordX);
 		inline void SetY(int coordY);
+		void DrawObstacle(const int& width, const int& height,
+			char arr[20][20]);
 		void info();
 	private:
 		int coordX_;

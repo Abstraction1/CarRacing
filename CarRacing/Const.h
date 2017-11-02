@@ -16,6 +16,9 @@ namespace constant
 	const int OBSTACLES_FENCE = 1;
 	const int OBSTACLES_STONE = 2;
 
+	const char OBSTACLES_FENCE_SYMB = '#';
+	const int OBSTACLES_FENCE_LENGTH = 5;
+
 	const char CAR_ENEMY_CENTR_SYMB = 'X';
 	const char CAR_ENEMY_BOARD_SYMB = '|';
 	const char CAR_ENEMY_WHEELS_SYMB = 'o';
@@ -43,7 +46,6 @@ namespace constant
 	const int POINTS_MAX_Y = 18;
 	const int POINTS_SPEED = 2;
 	const int POINTS_START_COUNT = 0;
-
 
 	const int TRACK_WIDTH = 20;
 	const int TRACK_HEIGHT = 20;
