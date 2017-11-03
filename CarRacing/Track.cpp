@@ -48,20 +48,8 @@ void Track::GameCreater()
 {	
 	TrackInit();
 	player_->PlayerInit(playerX_, playerY_, area);
-	/*cash_->CashInit(cashX_, cashY_, area);
-	carEnemy_->CarEnemyInit(carEnemyX_, carEnemyY_, area);*/
-
-	obstacles_[0] = new Stone;
-	obstacles_[1] = new Fence;
-	obstaclesX_ = obstacles_[0]->GetX();
-	obstaclesY_ = obstacles_[0]->GetY();
-
-	obstacles_[0]->DrawObstacle(obstaclesX_, obstaclesY_, area);
-
-	obstaclesX_ = obstacles_[1]->GetX();
-	obstaclesY_ = obstacles_[1]->GetY();
-
-	obstacles_[1]->DrawObstacle(obstaclesX_, obstaclesY_, area);
+	cash_->CashInit(cashX_, cashY_, area);
+	carEnemy_->CarEnemyInit(carEnemyX_, carEnemyY_, area);
 }
 
 void Track::Print()
@@ -123,13 +111,13 @@ void Track::clearScreen()
 	SetConsoleCursorPosition(hOut, Position);
 }
 
-void Track::Logic()	
+void Track::Logic()
 {
-	std::random_device random_device; 
+	std::random_device random_device;
 	std::mt19937 generator(random_device());
-	std::uniform_int_distribution<> GenForPointXcoord(CASH_MIN_X, 
+	std::uniform_int_distribution<> GenForPointXcoord(CASH_MIN_X,
 		CASH_MAX_X);
-	std::uniform_int_distribution<> GenForObstXcoord(CAR_ENEMY_MIN_X, 
+	std::uniform_int_distribution<> GenForObstXcoord(CAR_ENEMY_MIN_X,
 		CAR_ENEMY_MAX_X);
 
 	switch (DIR)
@@ -160,7 +148,7 @@ void Track::Logic()
 	 * \file Track.cpp
 	 *
 	 * \author default
-	 * 
+	 *
 	 *
 	 * Player Board's
 	 */
@@ -178,12 +166,12 @@ void Track::Logic()
 	 * \file Track.cpp
 	 *
 	 * \author default
-	 * 
+	 *
 	 *
 	 * Cash Catcher
 	 */
 
-	cashY_+= constant::CASH_SPEED;
+	cashY_ += constant::CASH_SPEED;
 	if (cashY_ > constant::CASH_MAX_Y)
 	{
 		cashX_ = GenForPointXcoord(generator);
@@ -201,27 +189,31 @@ void Track::Logic()
 		cashY_ = 0;
 	}
 
-	//carEnemyY_++;
-	//if (carEnemyY_ > CAR_ENEMY_MAX_Y)
-	//{
-	//	carEnemyX_ = GenForObstXcoord(generator);
-	//	carEnemyY_ = CAR_ENEMY_MIN_Y;
-	//}
-	
+	carEnemyY_++;
+	if (carEnemyY_ > CAR_ENEMY_MAX_Y)
+	{
+		carEnemyX_ = GenForObstXcoord(generator);
+		carEnemyY_ = CAR_ENEMY_MIN_Y;
+	}
+
 	/*!
 	 * \file Track.cpp
 	 *
 	 * \author default
-	 * 
 	 *
-	 * Need to fix bug 
+	 *
+	 * fixed
 	 */
 
-	 /*bool isCrashCentr = playerY_ - 1 == carEnemyY_ + 1;
-	 if (isCrashCentr)
-	 {
-		 isGameOver = true;
-		 std::cout << "CRASH!";
-		 system("pause");
-	 }*/
+	bool isCrashCentr = playerY_ - 1 == carEnemyY_ + 1 && playerX_ == carEnemyX_;
+	bool isCrashLeft = playerY_ - 1 == carEnemyY_ + 1 && playerX_ - 1 == carEnemyX_ - 1;
+	bool isCrashRight = playerY_ - 1 == carEnemyY_ + 1 && playerX_ + 1 == carEnemyX_ - 1;
+
+
+	if (isCrashCentr || isCrashLeft || isCrashRight)
+	{
+		isGameOver = true;
+		std::cout << "CRASH!";
+		system("pause");
+	}
 }

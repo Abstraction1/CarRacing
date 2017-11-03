@@ -34,7 +34,7 @@ namespace constant
 	const int CAR_ENEMY_MAX_X = 16;
 	const int CAR_ENEMY_MIN_X = 2;
 	const int CAR_ENEMY_START_X = 10;
-	const int CAR_ENEMY_MAX_Y = 17;
+	const int CAR_ENEMY_MAX_Y = 18;
 	const int CAR_ENEMY_MIN_Y = 1;
 
 	const char PLAYER_CENTR_SYMB = 'X';
