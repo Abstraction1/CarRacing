@@ -1,4 +1,5 @@
 #include "Obstacles.h"
+
 using namespace racing;
 
 Hole::Hole() :
@@ -21,10 +22,18 @@ void Hole::info()
 	std::cout << "HOLE";
 }
 
-void racing::Hole::DrawObstacle(const int & coordX, const int & coordY, 
+void Hole::DrawObstacle(const int & coordX, const int & coordY, 
 	char arr[constant::TRACK_WIDTH][constant::TRACK_HEIGHT])
 {
-	
+	arr[coordY][coordX + 1] = constant::OBSTACLES_HOLE_SYMB;
+	arr[coordY][coordX + 2] = constant::OBSTACLES_HOLE_SYMB;
+	arr[coordY][coordX + 3] = constant::OBSTACLES_HOLE_SYMB;
+	arr[coordY + 1][coordX + 1] = constant::OBSTACLES_HOLE_SYMB;
+	arr[coordY + 1][coordX + 2] = constant::OBSTACLES_HOLE_SYMB;
+	arr[coordY + 1][coordX + 3] = constant::OBSTACLES_HOLE_SYMB;
+	arr[coordY + 2][coordX + 1] = constant::OBSTACLES_HOLE_SYMB;
+	arr[coordY + 2][coordX + 2] = constant::OBSTACLES_HOLE_SYMB;
+	arr[coordY + 2][coordX + 3] = constant::OBSTACLES_HOLE_SYMB;
 }
 
 void Fence::info()
@@ -32,7 +41,7 @@ void Fence::info()
 	std::cout << "FENCE";
 }
 
-void racing::Fence::DrawObstacle(const int & coordX, const int & coordY,
+void Fence::DrawObstacle(const int & coordX, const int & coordY,
 	char arr[constant::TRACK_WIDTH][constant::TRACK_HEIGHT])
 {
 	for (int i = 0; i < constant::OBSTACLES_FENCE_LENGTH; i++)
@@ -46,8 +55,15 @@ void Stone::info()
 	std::cout << "STONE";
 }
 
-void racing::Stone::DrawObstacle(const int & coordX, const int & coordY,
+void Stone::DrawObstacle(const int & coordX, const int & coordY,
 	char arr[constant::TRACK_WIDTH][constant::TRACK_HEIGHT])
 {
-	
+	for (int i = 0; i < constant::OBSTACLES_STONE_HEIGHT; i++)
+	{
+		for (int j = 0; j < constant::OBSTACLES_STONE_WIDTH; j++)
+		{
+			arr[coordY + j][coordX + i] = constant::OBSTACLES_STONE_SYMB;
+		}
+		std::cout << std::endl;
+	}
 }

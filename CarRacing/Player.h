@@ -1,4 +1,7 @@
 #pragma once
+#include "Const.h"
+
+using namespace constant;
 
 namespace racing
 {
@@ -9,6 +12,8 @@ namespace racing
 		inline int GetX() const;
 		inline int GetY() const;
 		inline void SetX(const int coordX);
+		void PlayerInit(const int& coordX, const int& coordY,
+			char track[TRACK_WIDTH][TRACK_HEIGHT]);
 	private:
 		int coordX_;
 		int coordY_;

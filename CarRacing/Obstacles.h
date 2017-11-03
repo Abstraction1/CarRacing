@@ -16,7 +16,7 @@ namespace racing
 			std::cout << "base";
 		}
 		virtual void DrawObstacle(const int& width, const int& height,
-			char arr[20][20]) = 0;
+			char arr[constant::TRACK_WIDTH][constant::TRACK_HEIGHT]) = 0;
 	};
 
 	class Hole : public Obstacles
@@ -29,7 +29,7 @@ namespace racing
 		inline void SetY(int coordY);
 		void info();
 		void DrawObstacle(const int& width, const int& height, 
-			char arr[20][20]);
+			char arr[constant::TRACK_WIDTH][constant::TRACK_HEIGHT]);
 	private:
 		int coordX_;
 		int coordY_;
@@ -45,7 +45,7 @@ namespace racing
 		inline void SetY(int coordY);
 		void info();
 		void DrawObstacle(const int& width, const int& height,
-			char arr[20][20]);
+			char arr[constant::TRACK_WIDTH][constant::TRACK_HEIGHT]);
 	private:
 		int coordX_;
 		int coordY_;
@@ -60,7 +60,7 @@ namespace racing
 		inline void SetX(int coordX);
 		inline void SetY(int coordY);
 		void DrawObstacle(const int& width, const int& height,
-			char arr[20][20]);
+			char arr[constant::TRACK_WIDTH][constant::TRACK_HEIGHT]);
 		void info();
 	private:
 		int coordX_;

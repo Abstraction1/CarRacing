@@ -19,6 +19,14 @@ namespace constant
 	const char OBSTACLES_FENCE_SYMB = '#';
 	const int OBSTACLES_FENCE_LENGTH = 5;
 
+	const int OBSTACLES_HOLE_WIDTH = 5;
+	const int OBSTACLES_HOLE_HEIGHT = 5;
+	const char OBSTACLES_HOLE_SYMB = '#';
+
+	const int OBSTACLES_STONE_WIDTH = 3;
+	const int OBSTACLES_STONE_HEIGHT = 3;
+	const char OBSTACLES_STONE_SYMB = '#';
+
 	const char CAR_ENEMY_CENTR_SYMB = 'X';
 	const char CAR_ENEMY_BOARD_SYMB = '|';
 	const char CAR_ENEMY_WHEELS_SYMB = 'o';
@@ -34,23 +42,23 @@ namespace constant
 	const char PLAYER_WHEELS_SYMB = 'o';
 	const int PLAYER_STEP = 1;
 	const int PLAYER_SPEED_CHANGER = 5;
-	const int PLAYER_START_COORD_X = 16;
-	const int PLAYER_START_COORD_Y = 16;
+	const int PLAYER_START_COORD_X = 10;
+	const int PLAYER_START_COORD_Y = 18;
 	const int PLAYER_MAX_X = 16;
 	const int PLAYER_MIN_X = 2;
 
-	const char POINTS_SYMB = '$';
-	const int POINTS_START_X = 10;
-	const int POINTS_MIN_X = 2;
-	const int POINTS_MAX_X = 17;
-	const int POINTS_MAX_Y = 18;
-	const int POINTS_SPEED = 2;
-	const int POINTS_START_COUNT = 0;
+	const char CASH_SYMB = '$';
+	const int CASH_START_X = 10;
+	const int CASH_MIN_X = 1;
+	const int CASH_MAX_X = 17;
+	const int CASH_MAX_Y = 18;
+	const int CASH_SPEED = 2;
+	const int CASH_START_COUNT = 0;
 
 	const int TRACK_WIDTH = 20;
 	const int TRACK_HEIGHT = 20;
-	const int TRACK_CURRENT_HEIGHT = 18;
-	const int SPEED_INIT = 150;
+	const int TRACK_CURRENT_HEIGHT = TRACK_HEIGHT - 2;
+	const int SPEED_INIT = 50;
 
 	const char TRACK_BOARD_SYMB = '|';
 	const char TRACK_FREE_SPACE_SYMB = ' ';
