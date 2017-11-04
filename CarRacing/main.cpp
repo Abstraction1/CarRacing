@@ -1,8 +1,6 @@
 #include "Track.h"
 #include <cstdlib>
 
-using namespace constant;
-
 int main()
 {
 	racing::Track game;

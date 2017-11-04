@@ -22,7 +22,7 @@ void Hole::info()
 	std::cout << "HOLE";
 }
 
-void Hole::DrawObstacle(const int & coordX, const int & coordY,
+void Hole::ObstaclesCreator(const int & coordX, const int & coordY,
 	char arr[constant::TRACK_WIDTH][constant::TRACK_HEIGHT])
 {
 	arr[coordY][coordX + 1] = constant::OBSTACLES_HOLE_SYMB;
@@ -41,7 +41,7 @@ void Fence::info()
 	std::cout << "FENCE";
 }
 
-void Fence::DrawObstacle(const int & coordX, const int & coordY,
+void Fence::ObstaclesCreator(const int & coordX, const int & coordY,
 	char arr[constant::TRACK_WIDTH][constant::TRACK_HEIGHT])
 {
 	for (int i = 0; i < constant::OBSTACLES_FENCE_LENGTH; i++)
@@ -55,7 +55,7 @@ void Stone::info()
 	std::cout << "STONE";
 }
 
-void Stone::DrawObstacle(const int & coordX, const int & coordY,
+void Stone::ObstaclesCreator(const int & coordX, const int & coordY,
 	char arr[constant::TRACK_WIDTH][constant::TRACK_HEIGHT])
 {
 	for (int i = 0; i < constant::OBSTACLES_STONE_HEIGHT; i++)

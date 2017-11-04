@@ -31,7 +31,7 @@ Track::Track() :
 	carEnemyY_(carEnemy_->GetY())
 { }
 
-void Track::TrackInit()
+void Track::TrackCreator()
 {
 	for (auto & i : area)
 	{
@@ -46,10 +46,10 @@ void Track::TrackInit()
 
 void Track::GameCreater()
 {
-	TrackInit();
-	player_->PlayerInit(playerX_, playerY_, area);
-	cash_->CashInit(cashX_, cashY_, area);
-	//carEnemy_->CarEnemyInit(carEnemyX_, carEnemyY_, area);
+	TrackCreator();
+	player_->PlayerCreator(playerX_, playerY_, area);
+	cash_->CashCreator(cashX_, cashY_, area);
+	carEnemy_->CarEnemyCreator(carEnemyX_, carEnemyY_, area);
 }
 
 void Track::Print()
@@ -122,7 +122,7 @@ void Track::Logic()
 
 	switch (DIR)
 	{
-	case DIR_LEFT:
+	case constant::DIR_LEFT:
 		playerX_ -= constant::PLAYER_STEP;
 		player_->SetX(playerX_);
 		DIR = constant::DIR_STOP;
@@ -132,22 +132,22 @@ void Track::Logic()
 		player_->SetX(playerX_);
 		DIR = constant::DIR_STOP;
 		break;
-	case DIR_UP:
+	case constant::DIR_UP:
 		speed_ = speed_ - constant::PLAYER_SPEED_CHANGER;
-		DIR = DIR_STOP;
+		DIR = constant::DIR_STOP;
 		break;
-	case DIR_DOWN:
+	case constant::DIR_DOWN:
 		speed_ = speed_ + constant::PLAYER_SPEED_CHANGER;
 		DIR = constant::DIR_STOP;
 		break;
-	case DIR_EXIT:
+	case constant::DIR_EXIT:
 		isGameOver = true;
 	}
 
 	/*!
 	 * \file Track.cpp
 	 *
-	 * \author default
+	 * \author defa`ult
 	 *
 	 *
 	 * Player Board's

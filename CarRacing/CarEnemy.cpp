@@ -8,7 +8,7 @@ CarEnemy::CarEnemy() :
 	coordY_(constant::CAR_ENEMY_MIN_Y)
 { }
 
-void CarEnemy::CarEnemyInit(const int & coordX, const int & coordY,
+void CarEnemy::CarEnemyCreator(const int & coordX, const int & coordY,
 	char track[constant::TRACK_WIDTH][constant::TRACK_HEIGHT])
 {
 	track[coordY][coordX] = constant::CAR_ENEMY_CENTR_SYMB;

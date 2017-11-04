@@ -1,8 +1,6 @@
 #pragma once
 #include "Const.h"
 
-using namespace constant;
-
 namespace racing
 {
 	class Cash
@@ -11,8 +9,8 @@ namespace racing
 		Cash();
 		inline int GetX() const;
 		inline int GetY() const;
-		void CashInit(const int& coordX, const int& coordY,
-			char track[TRACK_WIDTH][TRACK_HEIGHT]);
+		void CashCreator(const int& coordX, const int& coordY,
+			char track[constant::TRACK_WIDTH][constant::TRACK_HEIGHT]);
 	private:
 		int coordX_;
 		int coordY_;

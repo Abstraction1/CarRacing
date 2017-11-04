@@ -1,6 +1,8 @@
 #pragma once
-#include <iostream>
+
 #include "Const.h"
+
+#include <iostream>
 
 namespace racing
 {
@@ -15,7 +17,7 @@ namespace racing
 		{
 			std::cout << "base";
 		}
-		virtual void DrawObstacle(const int& width, const int& height,
+		virtual void ObstaclesCreator(const int& width, const int& height,
 			char arr[constant::TRACK_WIDTH][constant::TRACK_HEIGHT]) = 0;
 	};
 
@@ -28,7 +30,7 @@ namespace racing
 		inline void SetX(int coordX);
 		inline void SetY(int coordY);
 		void info();
-		void DrawObstacle(const int& width, const int& height,
+		void ObstaclesCreator(const int& width, const int& height,
 			char arr[constant::TRACK_WIDTH][constant::TRACK_HEIGHT]);
 	private:
 		int coordX_;
@@ -44,7 +46,7 @@ namespace racing
 		inline void SetX(int coordX);
 		inline void SetY(int coordY);
 		void info();
-		void DrawObstacle(const int& width, const int& height,
+		void ObstaclesCreator(const int& width, const int& height,
 			char arr[constant::TRACK_WIDTH][constant::TRACK_HEIGHT]);
 	private:
 		int coordX_;
@@ -59,7 +61,7 @@ namespace racing
 		inline int GetY();
 		inline void SetX(int coordX);
 		inline void SetY(int coordY);
-		void DrawObstacle(const int& width, const int& height,
+		void ObstaclesCreator(const int& width, const int& height,
 			char arr[constant::TRACK_WIDTH][constant::TRACK_HEIGHT]);
 		void info();
 	private:

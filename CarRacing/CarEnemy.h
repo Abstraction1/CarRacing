@@ -1,7 +1,6 @@
 #pragma once
-#include "Const.h"
 
-using namespace constant;
+#include "Const.h"
 
 namespace racing
 {
@@ -11,8 +10,8 @@ namespace racing
 		CarEnemy();
 		inline int GetX() const;
 		inline int GetY() const;
-		void CarEnemyInit(const int& coordX, const int& coordY,
-			char track[TRACK_WIDTH][TRACK_HEIGHT]);
+		void CarEnemyCreator(const int& coordX, const int& coordY,
+			char track[constant::TRACK_WIDTH][constant::TRACK_HEIGHT]);
 	private:
 		int coordX_;
 		int coordY_;

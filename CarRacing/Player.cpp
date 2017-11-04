@@ -1,6 +1,7 @@
-#include <iostream>
 #include "Player.h"
 #include "Const.h"
+
+#include <iostream>
 
 using namespace racing;
 
@@ -9,7 +10,7 @@ Player::Player() :
 	coordY_(constant::PLAYER_START_COORD_Y)
 { }
 
-void Player::PlayerInit(const int& coordX, const int& coordY,
+void Player::PlayerCreator(const int& coordX, const int& coordY,
 	char track[constant::TRACK_WIDTH][constant::TRACK_HEIGHT])
 {
 	track[coordY][coordX] = constant::PLAYER_CENTR_SYMB;

@@ -2,6 +2,7 @@
 #include "Const.h"
 
 #include <iostream>
+
 using namespace racing;
 
 Cash::Cash() :
@@ -9,7 +10,7 @@ Cash::Cash() :
 	coordY_(0)
 { }
 
-void Cash::CashInit(const int & coordX, const int & coordY,
+void Cash::CashCreator(const int & coordX, const int & coordY,
 	char track[constant::TRACK_WIDTH][constant::TRACK_HEIGHT])
 {
 	track[coordY][coordX] = constant::CASH_SYMB;

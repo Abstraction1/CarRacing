@@ -4,11 +4,10 @@
 #include "Cash.h"
 #include "CarEnemy.h"
 #include "Obstacles.h"
-
-#include <conio.h>
 #include "Const.h"
 
-using namespace constant;
+#include <conio.h>
+
 using namespace racing;
 
 namespace racing
@@ -23,16 +22,16 @@ namespace racing
 		void Run();
 		void Input();
 		void clearScreen();
-		void TrackInit();
+		void TrackCreator();
 	private:
-		char area[TRACK_WIDTH][TRACK_HEIGHT];
+		char area[constant::TRACK_WIDTH][constant::TRACK_HEIGHT];
 
 		Player* player_;
 		Cash* cash_;
 		CarEnemy* carEnemy_;
-		Obstacles* obstacles_[OBSTACLES_NUMBER];
+		Obstacles* obstacles_[constant::OBSTACLES_NUMBER];
 
-		e_direction DIR;
+		constant::e_direction DIR;
 
 		bool isGameOver;
 
