@@ -4,7 +4,7 @@
  * \file Const.h
  *
  * \author default
- * 
+ *
  *
  * Constant List
  */
@@ -51,11 +51,11 @@ namespace constant
 	const int CASH_START_X = 10;
 	const int CASH_MIN_X = 1;
 	const int CASH_MAX_X = 17;
-	const int CASH_MAX_Y = 18;
+	const int CASH_MAX_Y = 22;
 	const int CASH_SPEED = 2;
 	const int CASH_START_COUNT = 0;
 
-	const int TRACK_WIDTH = 20;
+	const int TRACK_WIDTH = 21;
 	const int TRACK_HEIGHT = 20;
 	const int TRACK_CURRENT_HEIGHT = TRACK_HEIGHT - 2;
 	const int SPEED_INIT = 50;

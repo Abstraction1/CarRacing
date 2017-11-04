@@ -5,24 +5,24 @@ using namespace racing;
 Hole::Hole() :
 	coordX_(1),
 	coordY_(1)
-	{ }
+{ }
 
-Fence::Fence() : 
+Fence::Fence() :
 	coordX_(3),
 	coordY_(3)
-	{ }
+{ }
 
 Stone::Stone() :
 	coordX_(5),
 	coordY_(5)
-	{ }
+{ }
 
 void Hole::info()
 {
 	std::cout << "HOLE";
 }
 
-void Hole::DrawObstacle(const int & coordX, const int & coordY, 
+void Hole::DrawObstacle(const int & coordX, const int & coordY,
 	char arr[constant::TRACK_WIDTH][constant::TRACK_HEIGHT])
 {
 	arr[coordY][coordX + 1] = constant::OBSTACLES_HOLE_SYMB;

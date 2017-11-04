@@ -28,7 +28,7 @@ namespace racing
 		inline void SetX(int coordX);
 		inline void SetY(int coordY);
 		void info();
-		void DrawObstacle(const int& width, const int& height, 
+		void DrawObstacle(const int& width, const int& height,
 			char arr[constant::TRACK_WIDTH][constant::TRACK_HEIGHT]);
 	private:
 		int coordX_;

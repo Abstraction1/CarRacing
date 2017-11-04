@@ -15,7 +15,7 @@ Track::Track() :
 	isGameOver(false),
 	pointsCount_(constant::CASH_START_COUNT),
 	speed_(constant::SPEED_INIT),
-	DIR(DIR_STOP),
+	DIR(constant::DIR_STOP),
 
 	player_(new Player),
 	cash_(new Cash),
@@ -29,7 +29,7 @@ Track::Track() :
 
 	carEnemyX_(carEnemy_->GetX()),
 	carEnemyY_(carEnemy_->GetY())
-	{ }
+{ }
 
 void Track::TrackInit()
 {
@@ -45,11 +45,11 @@ void Track::TrackInit()
 }
 
 void Track::GameCreater()
-{	
+{
 	TrackInit();
 	player_->PlayerInit(playerX_, playerY_, area);
 	cash_->CashInit(cashX_, cashY_, area);
-	carEnemy_->CarEnemyInit(carEnemyX_, carEnemyY_, area);
+	//carEnemy_->CarEnemyInit(carEnemyX_, carEnemyY_, area);
 }
 
 void Track::Print()
@@ -65,7 +65,7 @@ void Track::Print()
 }
 
 void Track::Run()
-{	
+{
 	while (!isGameOver)
 	{
 		Input();
@@ -115,10 +115,10 @@ void Track::Logic()
 {
 	std::random_device random_device;
 	std::mt19937 generator(random_device());
-	std::uniform_int_distribution<> GenForPointXcoord(CASH_MIN_X,
-		CASH_MAX_X);
-	std::uniform_int_distribution<> GenForObstXcoord(CAR_ENEMY_MIN_X,
-		CAR_ENEMY_MAX_X);
+	std::uniform_int_distribution<> GenForPointXcoord(constant::CASH_MIN_X,
+		constant::CASH_MAX_X);
+	std::uniform_int_distribution<> GenForObstXcoord(constant::CAR_ENEMY_MIN_X,
+		constant::CAR_ENEMY_MAX_X);
 
 	switch (DIR)
 	{
@@ -189,12 +189,12 @@ void Track::Logic()
 		cashY_ = 0;
 	}
 
-	carEnemyY_++;
-	if (carEnemyY_ > CAR_ENEMY_MAX_Y)
-	{
-		carEnemyX_ = GenForObstXcoord(generator);
-		carEnemyY_ = CAR_ENEMY_MIN_Y;
-	}
+	//carEnemyY_++;
+	//if (carEnemyY_ > constant::CAR_ENEMY_MAX_Y)
+	//{
+	//	carEnemyX_ = GenForObstXcoord(generator);
+	//	carEnemyY_ = constant::CAR_ENEMY_MIN_Y;
+	//}
 
 	/*!
 	 * \file Track.cpp
@@ -205,15 +205,15 @@ void Track::Logic()
 	 * fixed
 	 */
 
-	bool isCrashCentr = playerY_ - 1 == carEnemyY_ + 1 && playerX_ == carEnemyX_;
-	bool isCrashLeft = playerY_ - 1 == carEnemyY_ + 1 && playerX_ - 1 == carEnemyX_ - 1;
-	bool isCrashRight = playerY_ - 1 == carEnemyY_ + 1 && playerX_ + 1 == carEnemyX_ - 1;
+	 /*bool isCrashCentr = playerY_ - 1 == carEnemyY_ + 1 && playerX_ == carEnemyX_;
+	 bool isCrashLeft = playerY_ - 1 == carEnemyY_ + 1 && playerX_ - 1 == carEnemyX_ - 1;
+	 bool isCrashRight = playerY_ - 1 == carEnemyY_ + 1 && playerX_ + 1 == carEnemyX_ - 1;
 
 
-	if (isCrashCentr || isCrashLeft || isCrashRight)
-	{
-		isGameOver = true;
-		std::cout << "CRASH!";
-		system("pause");
-	}
+	 if (isCrashCentr || isCrashLeft || isCrashRight)
+	 {
+		 isGameOver = true;
+		 std::cout << "CRASH!";
+		 system("pause");
+	 }*/
 }

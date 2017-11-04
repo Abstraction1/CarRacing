@@ -26,7 +26,7 @@ namespace racing
 		void TrackInit();
 	private:
 		char area[TRACK_WIDTH][TRACK_HEIGHT];
-		
+
 		Player* player_;
 		Cash* cash_;
 		CarEnemy* carEnemy_;
@@ -38,13 +38,13 @@ namespace racing
 
 		int speed_;
 		int pointsCount_;
-		
+
 		int playerX_;
 		int playerY_;
-		
+
 		int cashX_;
 		int cashY_;
-		
+
 		int carEnemyX_;
 		int carEnemyY_;
 
